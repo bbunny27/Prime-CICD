@@ -16,5 +16,6 @@ def generate_primes(n):
     return primes
 
 if __name__ == "__main__":
+    print("Starting prime calculation...")
     n = int(input("Enter the number of primes to generate: "))
     print(f"First {n} prime numbers: {generate_primes(n)}")
