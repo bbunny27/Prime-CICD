@@ -1,6 +1,1 @@
-Purpose of EC2PrimeDeployRole and S3 Permissions
-
-Role of appspec.yml in Application Execution
-
-Changes Required for Private Subnet Deployment
 
