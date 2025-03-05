@@ -8,3 +8,5 @@ hooks:
   - location : scripts/start.sh
     timeout : 30
     runas: ubuntu
+
+# I added a webhook to this file as part of my troubleshooting process. The webhook tells the application how to start.

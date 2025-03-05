@@ -1,13 +1,13 @@
-1) Explain the purpose of EC2PrimeDeployRole and why it needs S3 permissions?:
+Question 1) Explain the purpose of EC2PrimeDeployRole and why it needs S3 permissions?:
 The EC2PrimeDeployRole was a role given to the EC2 instance to allow it to interact with other AWS services. These roles are also how permissions are assigned to certain resources within AWS. 
 We needed to utilize this role to assignt the EC2 instance access to the S3 bucket. The EC2 instance needed access to the S3 bucket because AWS utilizes the S3 bucket service to store files used in the CICD pipeline. 
 Therefore, the EC2 instance needed the role in order to access these files and bring them into the production environment.
 
-2) How does appspec.yml ensure the application runs after deployment?:
+Question 2) How does appspec.yml ensure the application runs after deployment?:
 The appspec.yml file is part of the AWS CodeDeploy process. It defines the details of the deployment process and ensures that the application runs correctly. The files section in the appspec.yml file dictates where the application files should be placed. 
 In this case, it is my Github repository. The hooks section on my appspec.yml defines the how the appication starts after it is deployed. The hook I included was not included in the original appspec.yml file, but I found it necessary. 
 
-3) If the EC2 instance was in a private subnet, what changes would be needed for CodeDeploy to work. 
+Question 3) If the EC2 instance was in a private subnet, what changes would be needed for CodeDeploy to work. 
 If the EC2 instance was in a private subnet, it would have to be configured differently to host the application publicly. 
 I would need VPC endpoints on both the EC2 instance and the S3 bucket, so they could have public internet access and so they could communicate with each other, assuming the S3 bucket is not placed in the private subnet. 
 Furthermore, I would need to adjust my IAM Roles to allow for communication into the VPC Endpoints. This would also require the CodeDeploy Agent to be reconfigured to receive the new deployment commands through the VPC Endpoints. 
